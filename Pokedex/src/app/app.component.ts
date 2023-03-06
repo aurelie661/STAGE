@@ -8,11 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Pokedex';
 
-  keys = ''; 
-  
   onKeyUp(event:any) 
   { 
-    console.log(this.keys += event.target.value );
+    console.log(event.target.value );
     
   }
 

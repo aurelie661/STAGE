@@ -12,12 +12,10 @@ export class PokemonComponent implements OnInit{
   constructor(private pokemonService : PokemonServiceService){
     
   };
-
-  keys = ''; 
   
   onKeyUp(event:any) 
   { 
-    console.log(this.keys += event.target.value );
+    console.log(event.target.value );
   } 
 
   ngOnInit(){
