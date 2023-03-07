@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonServiceService } from '../pokemon-service.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,23 +8,37 @@ import { Subscription } from 'rxjs';
 })
 export class PokemonComponent implements OnInit{
   
-  constructor(private pokemonService : PokemonServiceService){
+
+  constructor(private pokemonService : PokemonServiceService){};
+
+  pokemonId = 0;
+  // pokemon = '';
+
+  onKey(event: any) {
+    this.pokemonId = event.target.value;
+    // this.pokemon = event.target.value;
+  }
+
+  savePokemon(){
+    console.log(this.pokemonId);
     
-  };
-  
-  onKeyUp(event:any) 
-  { 
-    console.log(event.target.value );
-  } 
+  }
 
   ngOnInit(){
-    // this.pokemonService.ditPatate();
-    this.pokemonService.getPokemon().subscribe(
-      data=>{
-        console.log(data);
+    this.pokemonService.getPokemon().subscribe({
+      next: (response) => {
+        console.log(response);
+        
+      
+      },
+      error:(error) =>{
+        console.log("Une erreur est survenu!");
         
       }
-    );
+      // data=>{
+      //   console.log(data);
+      // }
+    });
   }
   
 }

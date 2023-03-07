@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: '../app/pokemon/pokemon.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'Pokedex';
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: '../app/pokemon/pokemon.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+//   title = 'Pokedex';
 
   
-  onKeyUp(event:any) 
-  { 
-    console.log(event.target.value );
+//   onKeyUp(event:any) 
+//   { 
+//     console.log(event.target.value );
     
-  }
+//   }
 
-  ngOnInit(){
-    console.log("test pwet");
+//   ngOnInit(){
+//     console.log("test pwet");
     
-  }
-}
+//   }
+// }

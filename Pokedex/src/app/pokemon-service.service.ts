@@ -15,12 +15,10 @@ export class PokemonServiceService {
   };
   
   getPokemon() {
-    let id = 35;
+    let id = 54;
+    // let pokemon="";
     let url = "https://pokeapi.co/api/v2/pokemon/"+id;
     return this._httpClient.get(url)  ;
   }
 
-  ditPatate() {
-    console.log("patate !");
-  }
 }
