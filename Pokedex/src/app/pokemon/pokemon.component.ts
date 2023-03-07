@@ -7,27 +7,26 @@ import { PokemonServiceService } from '../pokemon-service.service';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit{
-  
+  pokemonId= 0;
+  newPokemonId= 0;
 
   constructor(private pokemonService : PokemonServiceService){};
-
-  pokemonId = 0;
-  // pokemon = '';
-
+  
   onKey(event: any) {
     this.pokemonId = event.target.value;
-    // this.pokemon = event.target.value;
   }
-
+  
   savePokemon(){
-    console.log(this.pokemonId);
-    
+    let idPokemon = this.pokemonId;
+    console.log(idPokemon);
   }
 
   ngOnInit(){
-    this.pokemonService.getPokemon().subscribe({
+    this.pokemonService.getPokemon(this.pokemonId).subscribe({
       next: (response) => {
         console.log(response);
+        this.newPokemonId = this.pokemonId;
+        console.log(this.newPokemonId);
         
       
       },
@@ -35,9 +34,6 @@ export class PokemonComponent implements OnInit{
         console.log("Une erreur est survenu!");
         
       }
-      // data=>{
-      //   console.log(data);
-      // }
     });
   }
   
