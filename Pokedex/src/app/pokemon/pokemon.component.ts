@@ -7,34 +7,24 @@ import { PokemonServiceService } from '../pokemon-service.service';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit{
-  pokemonId= 0;
-  newPokemonId= 0;
+  pokemonId:number= 0;
 
   constructor(private pokemonService : PokemonServiceService){};
   
-  onKey(event: any) {
-    this.pokemonId = event.target.value;
-  }
-  
-  savePokemon(){
-    let idPokemon = this.pokemonId;
-    console.log(idPokemon);
+  getValue(){
+    this.pokemonService.getPokemon(this.pokemonId).subscribe({
+      next: (response) => {
+        console.log(response);     
+      },
+      error:(error) =>{
+        console.log("Une erreur est survenu!");       
+      }
+    });
+    console.log(this.pokemonId);
   }
 
   ngOnInit(){
-    this.pokemonService.getPokemon(this.pokemonId).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.newPokemonId = this.pokemonId;
-        console.log(this.newPokemonId);
-        
-      
-      },
-      error:(error) =>{
-        console.log("Une erreur est survenu!");
-        
-      }
-    });
+    
   }
   
 }

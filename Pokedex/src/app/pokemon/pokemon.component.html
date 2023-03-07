@@ -1,7 +1,4 @@
-<form>
-    <!-- <label for="pokemon" title="Rechercher un pokémon par son nom" id="pokemon">Rechercher un pokémon par son Nom</label><br>
-    <input type="text" (keyup)="onKey($event)"/><br><br> -->
-    <label for="pokemon" title="Rechercher un pokémon par son id" id="pokemonId">Rechercher un pokémon par son Id</label><br>
-    <input type="number" (keyup)="onKey($event)"/><br><br>
-    <button type="submit" (click)="savePokemon()">Valider</button>
-</form>
+
+    <label for="pokemon" title="Rechercher un pokémon par son id">Rechercher un pokémon par son Id</label><br>
+    <input type="number" [(ngModel)]="pokemonId" /><br><br>
+    <button (click)="getValue()">Valider</button>
