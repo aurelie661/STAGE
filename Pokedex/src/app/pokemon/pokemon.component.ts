@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonServiceService } from '../pokemon-service.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'pokemon-root',
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit{
-  pokemonId:number= 0;
+  pokemonId:number= 1;
   data:string="";
+  pokemonInfo:any ="";
 
   constructor(private pokemonService : PokemonServiceService){};
   
@@ -16,7 +17,10 @@ export class PokemonComponent implements OnInit{
     this.pokemonService.getPokemon(this.pokemonId).subscribe({
       next: (response) => {    
         let data = response;
-        console.log(data); 
+        this.pokemonInfo = data;
+        console.log(this.pokemonInfo.name); 
+        console.log(data);
+        
       },
       error:(error) =>{
         console.log("Une erreur est survenu!");       

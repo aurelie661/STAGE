@@ -14,8 +14,8 @@ export class PokemonServiceService {
     })
   };
   
-  getPokemon(id : number) {
-    let url = "https://pokeapi.co/api/v2/pokemon/"+id;
+  getPokemon(info : any) {
+    let url = "https://pokeapi.co/api/v2/pokemon/"+info;
     return this._httpClient.get(url)  ;
   }
 

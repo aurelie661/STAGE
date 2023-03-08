@@ -1,4 +1,7 @@
 
-    <label for="pokemon" title="Rechercher un pokémon par son id">Rechercher un pokémon par son Id</label><br>
-    <input type="number" [(ngModel)]="pokemonId" /><br><br>
+    <label class="title" for="pokemon" title="Rechercher un pokémon par son id">Rechercher un pokémon par son Id</label><br>
+    <input type="text" [(ngModel)]="pokemonId" />
     <button (click)="getValue()">Valider</button>
+    <p>{{pokemonInfo.name}}</p>
+
+    pokemon !
