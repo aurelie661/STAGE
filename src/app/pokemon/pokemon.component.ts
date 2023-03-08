@@ -14,6 +14,7 @@ export class PokemonComponent {
 
   constructor(private pokemonService : PokemonServiceService){};
   
+  
   getValue(){
     this.pokemonService.getPokemon(this.pokemonInputInfo).subscribe({
       next: (response) => {    
