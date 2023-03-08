@@ -1,1 +1,20 @@
-<p>pokemon works!</p>
+<div action="" class="div_search">
+  <label for="pokemon" title="Rechercher un pokémon par son id">Pokedex</label
+  ><br />
+  <input type="text" [(ngModel)]="pokemonInputInfo" />
+  <button (click)="getValue()">Valider</button>
+</div>
+<div class="div_info" *ngIf="pokemonInfo">
+  <p>Voici les infos du pokémon {{ pokemonInfo.name }}</p>
+  <div class="pokemonInfo">
+    <div>
+      <p>{{ pokemonInfo.name }} chromatique</p>
+      <img src="{{ pokemonInfo.sprites.front_shiny }}" alt="" srcset="" />
+    </div>
+    <div>
+      <p>{{ pokemonInfo.name }} normal</p>
+      <img src="{{ pokemonInfo.sprites.front_default }}" alt="" srcset="" />
+    </div>
+</div>
+<p>expérience de base {{pokemonInfo.base_experience}}</p>
+</div>
