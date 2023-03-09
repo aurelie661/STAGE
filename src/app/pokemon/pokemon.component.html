@@ -8,36 +8,26 @@
 <div class="div_info" *ngIf="pokemonInfo">
   <p>Voici les infos du pokémon {{ pokemonInfo.name }}</p>
   <div class="pokemonInfo">
-    <div>
+    <div *ngIf="pokemonPictureShiny">
       <p>{{ pokemonInfo.name }} chromatique</p>
-      <img
-        *ngIf="pokemonInfo.sprites.front_shiny"
-        src="{{ pokemonInfo.sprites.front_shiny }}"
-        alt=""
-        srcset=""
-      />
+      <img src="{{ pokemonPictureShiny }}" alt="" srcset="" />
     </div>
-    <div>
+    <div *ngIf="pokemonPictureDefault">
       <p>{{ pokemonInfo.name }} normal</p>
-      <img
-        *ngIf="pokemonInfo.sprites.front_default"
-        src="{{ pokemonInfo.sprites.front_default }}"
-        alt=""
-        srcset=""
-      />
+      <img src="{{ pokemonPictureDefault }}" alt="" srcset="" />
     </div>
   </div>
 
   <div *ngIf="descriptionInfo">
-    <p *ngIf="descriptionInfo.genera[3].genus">
-      {{ pokemonInfo.name }} est un {{ descriptionInfo.genera[3].genus }}
+    <p *ngIf="pokemonGeneralType">
+      {{ pokemonInfo.name }} est un {{ pokemonGeneralType }}
     </p>
     <p *ngIf="pokemonInfo.base_experience">
       L'expérience de base de ce pokémon est de
       {{ pokemonInfo.base_experience }}
     </p>
-    <p *ngIf="descriptionInfo.flavor_text_entries[18].language.name == 'fr'">
-      {{ descriptionInfo.flavor_text_entries[18].flavor_text }}
+    <p>
+      {{ frenchDescriptionPokemon }}
     </p>
   </div>
 </div>
