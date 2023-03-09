@@ -18,4 +18,9 @@ export class PokemonServiceService {
     let url = "https://pokeapi.co/api/v2/pokemon/"+info;
     return this._httpClient.get(url)  ;
   }
+
+  getDescription(description: any){
+    let url = "https://pokeapi.co/api/v2/pokemon-species/"+description;
+    return this._httpClient.get(url)  ;
+  }
 }
