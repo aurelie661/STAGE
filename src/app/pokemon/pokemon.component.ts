@@ -8,9 +8,11 @@ import { PokemonServiceService } from '../pokemon-service.service';
 })
 export class PokemonComponent {
 
-  pokemonInputInfo:any =5;
-  data:any ="";
+  pokemonInputInfo:any =1000;
+  dataPokemon:any ="";
   pokemonInfo:any ="";
+  dataDescription:any ="";
+  descriptionInfo:any ="";
 
   constructor(private pokemonService : PokemonServiceService){};
   
@@ -18,9 +20,18 @@ export class PokemonComponent {
   getValue(){
     this.pokemonService.getPokemon(this.pokemonInputInfo).subscribe({
       next: (response) => {    
-        let data = response;
-        this.pokemonInfo = data;
+        let dataPokemon = response;
+        this.pokemonInfo = dataPokemon;
+        console.log(this.pokemonInfo);
         
+        this.pokemonService.getDescription(this.pokemonInputInfo).subscribe({
+          next: (response) => {
+            let dataDescription= response;
+            this.descriptionInfo = dataDescription;
+            console.log(this.descriptionInfo);
+            
+          }
+        })
       },
       error:(error) =>{
         console.log("Une erreur est survenu!");       
