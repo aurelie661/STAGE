@@ -23,4 +23,9 @@ export class PokemonServiceService {
     let url = "https://pokeapi.co/api/v2/pokemon-species/"+description;
     return this._httpClient.get(url)  ;
   }
+
+  getHabitat(habitat: any){
+    let url = "https://pokeapi.co/api/v2/pokemon-habitat/"+habitat;
+    return this._httpClient.get(url)  ;
+  }
 }
