@@ -33,9 +33,8 @@
 }
 .pokemonInfo{
     display: grid;
-    width: 1000px;
-    grid-template-columns: 120px 120px 120px;
-    justify-content: space-between;
+    grid-template-columns: 250px 250px 250px;
+    justify-content: center;
 }
 .pokemonInfo>div>img{
     margin: 0px 50% 0px 50%;

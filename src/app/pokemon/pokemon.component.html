@@ -6,27 +6,28 @@
 </div>
 
 <div class="div_info" *ngIf="pokemonInfo">
-  <p>Voici les infos du pokémon {{ pokemonInfo.name }}</p>
+  <p>Voici les infos du pokémon {{ pokemonName }}</p>
   <div class="pokemonInfo">
     <div *ngIf="pokemonPictureShiny">
-      <p>{{ pokemonInfo.name }} chromatique</p>
+      <p>{{ pokemonName }} chromatique</p>
       <img src="{{ pokemonPictureShiny }}" alt="" srcset="" />
     </div>
     <div *ngIf="pokemonPictureDefault">
-      <p>{{ pokemonInfo.name }} normal</p>
+      <p>{{ pokemonName }} normal</p>
       <img src="{{ pokemonPictureDefault }}" alt="" srcset="" />
     </div>
   </div>
 
   <div *ngIf="descriptionInfo">
     <p *ngIf="pokemonGeneralType">
-      {{ pokemonInfo.name }} est un {{ pokemonGeneralType }}
+      {{ pokemonName }} est un {{ pokemonGeneralType }}
     </p>
+    <p>Il évolue en {{descriptionInfo.evolves_from_species.name}}</p>
     <p *ngIf="pokemonInfo.base_experience">
       L'expérience de base de ce pokémon est de
       {{ pokemonInfo.base_experience }}
     </p>
-    <p>
+    <p *ngFor="let frenchDescriptionPokemon of frenchDescriptionPokemons">
       {{ frenchDescriptionPokemon }}
     </p>
   </div>
