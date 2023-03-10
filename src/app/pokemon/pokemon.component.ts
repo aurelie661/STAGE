@@ -52,6 +52,7 @@ export class PokemonComponent {
                 if(this.descriptionInfo.names[e].language.name === 'fr'){
                   this.pokemonName = this.descriptionInfo.names[e].name;
                 }
+                
               }
             }catch{
               console.error("error");
