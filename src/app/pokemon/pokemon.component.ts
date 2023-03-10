@@ -10,6 +10,7 @@ export class PokemonComponent {
   pokemonInputInfo: any = 65;
   dataPokemon: any = '';
   pokemonInfo: any = '';
+  pokemonName: any ='';
   dataDescription: any = '';
   descriptionInfo: any = '';
   frenchDescriptionPokemons: Array<string> = [];
@@ -30,6 +31,7 @@ export class PokemonComponent {
             if (this.pokemonInfo.sprites.front_shiny !== 'null') {
               this.pokemonPictureShiny = this.pokemonInfo.sprites.front_shiny;
             }
+            
           }
         }
         this.pokemonService.getDescription(this.pokemonInputInfo).subscribe({
@@ -46,6 +48,9 @@ export class PokemonComponent {
               for (let e = 0;e < Object.keys(this.descriptionInfo).length - 1;e++) {
                 if (this.descriptionInfo.genera[e].language.name === 'fr') {
                   this.pokemonGeneralType = this.descriptionInfo.genera[e].genus;
+                }
+                if(this.descriptionInfo.names[e].language.name === 'fr'){
+                  this.pokemonName = this.descriptionInfo.names[e].name;
                 }
               }
             }catch{
