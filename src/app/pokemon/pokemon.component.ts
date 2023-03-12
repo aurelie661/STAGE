@@ -13,7 +13,9 @@ export class PokemonComponent {
   pokemonName: any ='';
   dataDescription: any = '';
   descriptionInfo: any = '';
-  frenchDescriptionPokemons: Array<string> = [];
+  arrayDescription: Array<any> = [];
+  frenchDescriptionTempo: Array<any> = [];
+  frenchDescriptionPokemons: Array<any> = [];
   pokemonGeneralType: any = '';
   pokemonPictureDefault: any = '';
   pokemonPictureShiny: any = '';
@@ -38,13 +40,23 @@ export class PokemonComponent {
           next: (response) => {
             let dataDescription = response;
             this.descriptionInfo = dataDescription;
-
+            
             try{
               for (let i = 0;i < Object.keys(this.descriptionInfo).length - 1;i++) {
-                if ( this.descriptionInfo.flavor_text_entries[i].language.name ==='fr') {
-                this.frenchDescriptionPokemons.push(this.descriptionInfo.flavor_text_entries[i].flavor_text)
+                if(this.descriptionInfo.flavor_text_entries){  
+                  this.arrayDescription = this.descriptionInfo.flavor_text_entries;
                 }
               }
+              
+              for (let i = 0; i < Object.keys(this.arrayDescription).length - 1; i++) {
+                if(this.arrayDescription[i].language.name === 'fr'){
+                    this.frenchDescriptionTempo = this.arrayDescription[i].flavor_text;
+                    this.frenchDescriptionPokemons.push(this.frenchDescriptionTempo);
+                    
+                }
+                
+              }
+              console.log(this.frenchDescriptionPokemons);
               for (let e = 0;e < Object.keys(this.descriptionInfo).length - 1;e++) {
                 if (this.descriptionInfo.genera[e].language.name === 'fr') {
                   this.pokemonGeneralType = this.descriptionInfo.genera[e].genus;
@@ -58,8 +70,8 @@ export class PokemonComponent {
               console.error("error");
               
             }
-            console.log(this.descriptionInfo);
-            console.log(this.pokemonInfo);
+            // console.log(this.descriptionInfo);
+            // console.log(this.pokemonInfo);
           },
           error: (error) => {
             console.log(
