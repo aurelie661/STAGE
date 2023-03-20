@@ -109,4 +109,25 @@ p {
   font-size: 2em;
   text-align: center;
   letter-spacing: 0.1em;
+=======
+.div_info>p{
+    text-align: center;
+    font-size: 4em;
+    color: brown;
+    letter-spacing: 0.1em;
+}
+.pokemonInfo{
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    justify-content: center;
+}
+.pokemonInfo>div>img{
+    margin: 0px 50% 0px 50%;
+    width: 10em;
+    height: 10em;
+}
+p{
+    font-size: 2em;
+    text-align: center;
+    letter-spacing: 0.1em;
 }
