@@ -1,10 +1,11 @@
 <div action="" class="div_search">
-  <label for="pokemon" title="Rechercher un pokémon par son id">Pokedex</label
+  <label class="title" for="pokemon" title="Rechercher un pokémon par son id">POKEDEX</label
   ><br />
   <input type="text" [(ngModel)]="pokemonInputInfo" /><br />
-  <button (click)="getValue()">Valider</button>
+  <button class="button-arounder" (click)="getValue()">Valider</button>
 </div>
 
+<div id="typedtext"></div>
 <div class="div_info" *ngIf="pokemonInfo">
   <p>Voici les infos du pokémon {{ pokemonName }}</p>
   <div class="pokemonInfo">
@@ -22,7 +23,7 @@
     <p *ngIf="pokemonGeneralType">
       {{ pokemonName }} est un {{ pokemonGeneralType }}
     </p>
-    <p>Il évolue en {{descriptionInfo.evolves_from_species.name}}</p>
+    <p>Il évolue en {{ descriptionInfo.evolves_from_species.name }}</p>
     <p *ngIf="pokemonInfo.base_experience">
       L'expérience de base de ce pokémon est de
       {{ pokemonInfo.base_experience }}
@@ -32,3 +33,4 @@
     </p>
   </div>
 </div>
+<script src="pokemon.js" type="text/javascript"></script>

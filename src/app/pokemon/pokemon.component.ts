@@ -16,6 +16,7 @@ export class PokemonComponent {
   arrayDescription: Array<any> = [];
   frenchDescriptionTempo: Array<any> = [];
   frenchDescriptionPokemons: Array<any> = [];
+  frenchDescriptionPokemonsGo: Array<any> = [];
   pokemonGeneralType: any = '';
   pokemonPictureDefault: any = '';
   pokemonPictureShiny: any = '';
@@ -47,7 +48,6 @@ export class PokemonComponent {
                   this.arrayDescription = this.descriptionInfo.flavor_text_entries;
                 }
               }
-              
               for (let i = 0; i < Object.keys(this.arrayDescription).length - 1; i++) {
                 if(this.arrayDescription[i].language.name === 'fr'){
                     this.frenchDescriptionTempo = this.arrayDescription[i].flavor_text;
@@ -56,7 +56,7 @@ export class PokemonComponent {
                 }
                 
               }
-              console.log(this.frenchDescriptionPokemons);
+              
               for (let e = 0;e < Object.keys(this.descriptionInfo).length - 1;e++) {
                 if (this.descriptionInfo.genera[e].language.name === 'fr') {
                   this.pokemonGeneralType = this.descriptionInfo.genera[e].genus;
