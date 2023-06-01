@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PokemonServiceService } from '../pokemon-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon',
@@ -7,7 +8,7 @@ import { PokemonServiceService } from '../pokemon-service.service';
   styleUrls: ['./pokemon.component.css'],
 })
 export class PokemonComponent {
-  pokemonInputInfo: any = 65;
+  pokemonInputInfo: any = 654;
   dataPokemon: any = '';
   pokemonInfo: any = '';
   pokemonName: any ='';
@@ -21,7 +22,7 @@ export class PokemonComponent {
   pokemonPictureDefault: any = '';
   pokemonPictureShiny: any = '';
 
-  constructor(private pokemonService: PokemonServiceService) {}
+  constructor(private pokemonService: PokemonServiceService, private routes: Router) {}
 
   getValue() {
     this.pokemonService.getPokemon(this.pokemonInputInfo).subscribe({
@@ -86,5 +87,8 @@ export class PokemonComponent {
     });
   }
 
+  gotohome(){
+    this.routes.navigate(['/pokemons']);
+  }
   ngOnInit() {}
 }

@@ -1,25 +1,35 @@
 <div action="" class="div_search">
-  <label class="title" for="pokemon" title="Rechercher un pokémon par son id">POKEDEX</label
-  ><br />
-  <input type="text" [(ngModel)]="pokemonInputInfo" /><br />
-  <button class="button-arounder" (click)="getValue()">Valider</button>
+  <label
+    (click)="gotohome()"
+    class="title"
+    for="pokemon"
+    title="Rechercher un pokémon par son id"
+    >POKEDEX</label
+  >
+    <input
+      type="text"
+      [(ngModel)]="pokemonInputInfo"
+      placeholder="N° d'enregistrement"
+    />
+    <button mat-button class="button-arounder" (click)="getValue()">
+      Valider
+    </button>
 </div>
 
-<div id="typedtext"></div>
 <div class="div_info" *ngIf="pokemonInfo">
-  <p>Voici les infos du pokémon {{ pokemonName }}</p>
   <div class="pokemonInfo">
-    <div *ngIf="pokemonPictureShiny">
-      <p>{{ pokemonName }} chromatique</p>
-      <img src="{{ pokemonPictureShiny }}" alt="" srcset="" />
+    <div *ngIf="pokemonPictureShiny" class="pic1">
+      <h1>{{ pokemonName }} chromatique</h1>
+      <img src="{{ pokemonPictureShiny }}" alt="" srcset=""/>
     </div>
-    <div *ngIf="pokemonPictureDefault">
-      <p>{{ pokemonName }} normal</p>
+    <div class="div3"> </div>
+    <div *ngIf="pokemonPictureDefault" class="pic2">
+      <h1>{{ pokemonName }} normal</h1>
       <img src="{{ pokemonPictureDefault }}" alt="" srcset="" />
     </div>
   </div>
-
-  <div *ngIf="descriptionInfo">
+</div>
+  <!-- <div *ngIf="descriptionInfo">
     <p *ngIf="pokemonGeneralType">
       {{ pokemonName }} est un {{ pokemonGeneralType }}
     </p>
@@ -31,6 +41,4 @@
     <p *ngFor="let frenchDescriptionPokemon of frenchDescriptionPokemons">
       {{ frenchDescriptionPokemon }}
     </p>
-  </div>
-</div>
-<script src="pokemon.js" type="text/javascript"></script>
+  </div> -->
