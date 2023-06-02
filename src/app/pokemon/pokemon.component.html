@@ -1,44 +1,42 @@
 <div action="" class="div_search">
-  <label
-    (click)="gotohome()"
-    class="title"
-    for="pokemon"
-    title="Rechercher un pokémon par son id"
+  <label class="title" for="pokemon" title="Rechercher un pokémon par son id"
     >POKEDEX</label
   >
-    <input
-      type="text"
-      [(ngModel)]="pokemonInputInfo"
-      placeholder="N° d'enregistrement"
-    />
-    <button mat-button class="button-arounder" (click)="getValue()">
-      Valider
-    </button>
+  <input
+    type="text"
+    [(ngModel)]="pokemonInputInfo"
+    placeholder="N° d'enregistrement"
+  />
+  <button mat-button class="button-arounder" (click)="getValue()">
+    Valider
+  </button>
 </div>
 
 <div class="div_info" *ngIf="pokemonInfo">
   <div class="pokemonInfo">
-    <div *ngIf="pokemonPictureShiny" class="pic1">
+    <div *ngIf="pokemonPictureShiny" class="div1">
       <h1>{{ pokemonName }} chromatique</h1>
-      <img src="{{ pokemonPictureShiny }}" alt="" srcset=""/>
+      <img src="{{ pokemonPictureShiny }}" alt="" srcset="" />
     </div>
-    <div class="div3"> </div>
-    <div *ngIf="pokemonPictureDefault" class="pic2">
+    <div class="div2"></div>
+    <div *ngIf="pokemonPictureDefault" class="div3">
       <h1>{{ pokemonName }} normal</h1>
       <img src="{{ pokemonPictureDefault }}" alt="" srcset="" />
     </div>
   </div>
 </div>
-  <!-- <div *ngIf="descriptionInfo">
-    <p *ngIf="pokemonGeneralType">
+<div class="descriptionInfo">
+  <div *ngIf="descriptionInfo">
+    <h1 *ngIf="pokemonGeneralType">
       {{ pokemonName }} est un {{ pokemonGeneralType }}
-    </p>
-    <p>Il évolue en {{ descriptionInfo.evolves_from_species.name }}</p>
-    <p *ngIf="pokemonInfo.base_experience">
+    </h1>
+    <h2>Il évolue en {{ descriptionInfo.evolves_from_species.name }}</h2>
+    <h2 *ngIf="pokemonInfo.base_experience">
       L'expérience de base de ce pokémon est de
       {{ pokemonInfo.base_experience }}
-    </p>
+    </h2>
     <p *ngFor="let frenchDescriptionPokemon of frenchDescriptionPokemons">
       {{ frenchDescriptionPokemon }}
     </p>
-  </div> -->
+  </div>
+</div>
