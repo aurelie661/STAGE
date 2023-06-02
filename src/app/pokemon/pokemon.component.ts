@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./pokemon.component.css'],
 })
 export class PokemonComponent {
-  pokemonInputInfo: any = 654;
+  pokemonInputInfo: any = '';
   dataPokemon: any = '';
   pokemonInfo: any = '';
-  pokemonName: any ='';
+  pokemonName: any = '';
   dataDescription: any = '';
   descriptionInfo: any = '';
   arrayDescription: Array<any> = [];
@@ -22,7 +22,10 @@ export class PokemonComponent {
   pokemonPictureDefault: any = '';
   pokemonPictureShiny: any = '';
 
-  constructor(private pokemonService: PokemonServiceService, private routes: Router) {}
+  constructor(
+    private pokemonService: PokemonServiceService,
+    private routes: Router
+  ) {}
 
   getValue() {
     this.pokemonService.getPokemon(this.pokemonInputInfo).subscribe({
@@ -35,44 +38,54 @@ export class PokemonComponent {
             if (this.pokemonInfo.sprites.front_shiny !== 'null') {
               this.pokemonPictureShiny = this.pokemonInfo.sprites.front_shiny;
             }
-            
           }
         }
         this.pokemonService.getDescription(this.pokemonInputInfo).subscribe({
           next: (response) => {
             let dataDescription = response;
             this.descriptionInfo = dataDescription;
-            
-            try{
-              for (let i = 0;i < Object.keys(this.descriptionInfo).length - 1;i++) {
-                if(this.descriptionInfo.flavor_text_entries){  
-                  this.arrayDescription = this.descriptionInfo.flavor_text_entries;
+
+            try {
+              for (
+                let i = 0;
+                i < Object.keys(this.descriptionInfo).length - 1;
+                i++
+              ) {
+                if (this.descriptionInfo.flavor_text_entries) {
+                  this.arrayDescription =
+                    this.descriptionInfo.flavor_text_entries;
                 }
               }
-              for (let i = 0; i < Object.keys(this.arrayDescription).length - 1; i++) {
-                if(this.arrayDescription[i].language.name === 'fr'){
-                    this.frenchDescriptionTempo = this.arrayDescription[i].flavor_text;
-                    this.frenchDescriptionPokemons.push(this.frenchDescriptionTempo);
-                    
+              for (
+                let i = 0;
+                i < Object.keys(this.arrayDescription).length - 1;
+                i++
+              ) {
+                if (this.arrayDescription[i].language.name === 'fr') {
+                  this.frenchDescriptionTempo =
+                    this.arrayDescription[i].flavor_text;
+                  this.frenchDescriptionPokemons.push(
+                    this.frenchDescriptionTempo
+                  );
                 }
-                
               }
-              
-              for (let e = 0;e < Object.keys(this.descriptionInfo).length - 1;e++) {
+
+              for (
+                let e = 0;
+                e < Object.keys(this.descriptionInfo).length - 1;
+                e++
+              ) {
                 if (this.descriptionInfo.genera[e].language.name === 'fr') {
-                  this.pokemonGeneralType = this.descriptionInfo.genera[e].genus;
+                  this.pokemonGeneralType =
+                    this.descriptionInfo.genera[e].genus;
                 }
-                if(this.descriptionInfo.names[e].language.name === 'fr'){
+                if (this.descriptionInfo.names[e].language.name === 'fr') {
                   this.pokemonName = this.descriptionInfo.names[e].name;
                 }
-                
               }
-            }catch{
-              console.error("error");
-              
+            } catch {
+              console.error('error');
             }
-            // console.log(this.descriptionInfo);
-            // console.log(this.pokemonInfo);
           },
           error: (error) => {
             console.log(
@@ -87,8 +100,5 @@ export class PokemonComponent {
     });
   }
 
-  gotohome(){
-    this.routes.navigate(['/pokemons']);
-  }
   ngOnInit() {}
 }

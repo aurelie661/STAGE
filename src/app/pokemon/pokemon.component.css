@@ -1,14 +1,15 @@
 * {
   font-family: "Times New Roman", Times, serif !important;
+  letter-spacing: 0.1em!important;
 }
 /* HEADER */
 .div_search {
   text-align: center;
   font-size: 9em;
-  margin-top: 1.2em !important;
+  margin-top: 0.6em !important;
 }
 input {
-  margin: 7em auto 1.5em auto;
+  margin: 7em auto auto auto;
   width: 17em;
   padding: 0.5em 0.5em 0.5em 0.5em;
   display: block;
@@ -17,6 +18,15 @@ input {
   padding: 0.5em 0.5em 0.5em 0.5em;
   display: inline;
   cursor: pointer;
+  transition: 0.8s;
+}
+.button-arounder:hover {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  display: inline;
+  cursor: pointer;
+  background-color: black;
+  color: aqua;
+  border-radius: 30%;
 }
 /* BODY */
 .pokemonInfo {
@@ -26,15 +36,22 @@ input {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-.pic1 {
-  grid-area: 1 / 2 / 3 / 3;
+.div1 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.div2 {
+  grid-area: 1 / 3 / 2 / 4;
 }
 .div3 {
-  grid-area: 1 / 3 / 3 / 4;
-}
-.pic2 {
-  grid-area: 1 / 4 / 3 / 5;
+  grid-area: 1 / 4 / 2 / 5; 
 }
 img {
-  width: 300px;
+  width: 250px;
+}
+.descriptionInfo{
+  text-align: center;
+  margin-top: -1200px;
+}
+p{
+  font-size: large;
 }
